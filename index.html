@@ -1,0 +1,295 @@
+<!DOCTYPE html><html lang="ru"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Стартовый стиль для слабого интернета: -->
+  <style>
+    @charset "UTF-8";
+
+    :root {
+      --link-color: #ff3c3c;
+      --link-color-hover: white;
+    
+      --back: #ff3c3c;
+      --back-hover: white;
+    
+      --main-text: #DDDDDD;
+      --main-bg: black;
+      --main-font: 'Fira Code', 'Fira Code Variable', 'Consolas', monospace;
+      --main-font-sz: 16px;
+      --main-padding: 20px;
+      --main-line-height: 1.4;
+      --main-width: 1024px;
+    }
+
+    @font-face {
+      font-family: 'Fira Code Variable';
+      src: url('fonts/FiraCode-VariableFont_wght.ttf') format('truetype');
+      /* Диапазон доступного веса для вариативного Fira Code */
+      font-weight: 300 700; 
+      font-style: normal;
+      /* заставляет браузер сразу показать стандартный шрифт, 
+      а после загрузки файла — заменить его на кастомный */
+      font-display: swap;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: var(--main-bg);
+      color: var(--main-text);
+      font-family: var(--main-font);
+      font-variant-ligatures: contextual;
+      font-size: var(--main-font-sz);
+      line-height: var(--main-line-height);
+      padding: var(--main-padding);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    a:hover {
+      color: var(--link-color-hover);
+      text-decoration: underline; /* Возвращает подчеркивание при наведении */
+      font-weight: bold;
+    }
+
+    a {
+      color: var(--link-color);
+      text-decoration: none;
+    }
+
+    .main, main, header {
+      margin-left: auto;
+      margin-right: auto;
+      width: 100%;
+      max-width: var(--main-width);
+    }
+
+    main {
+      flex: 1;
+    }
+
+    h1 {
+      color: white;
+      margin-bottom: 7px;
+      font-size: 32px;
+    }
+
+    header h1 {
+      text-align: center;
+    }
+
+    .back {
+      margin-top: 10px;
+      margin-bottom: 25px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      max-width: var(--main-width);
+    }
+
+    .back a {
+      color: var(--back);
+      text-decoration: none;
+    }
+
+    .back a:hover {
+      color: var(--back-hover);
+      text-decoration: underline;
+    }
+
+    .menu {
+      list-style-type: none;
+      padding-left: 0;
+      margin-top: 20px;
+      max-width: fit-content;
+    }
+    .menu li::before {
+      content: ">";
+      margin-right: 10px;
+      color: oklch(0.135% 1 30)
+    }
+
+    .footer-style {
+      padding: 40px 0;
+      display: flex;
+      justify-content: space-between; /* Распределяет колонки по краям */
+      flex-wrap: wrap;                /* Переносит колонки на мобильных */
+      max-width: var(--main-width);
+      margin: 0 auto;
+      color: hsl(0, 0%, 41%);
+    }
+
+    .about-site li {
+      margin-top: 15px;
+    }
+
+    .about-site h2 {
+      color: oklch(1 0.5 90);
+    }
+
+    /* ------------------------ пикчи ------------------------------------------- */
+
+    .gallery {
+      display: grid;
+      grid-template-columns: 1fr 1fr; /* Ровно два одинаковых столбца */
+      gap: 10px;          /* Расстояние между картинками */
+      max-width: var(--main-width);
+      margin: 15px auto;  /* Центрируем галерею на странице */
+    }
+
+    .screenshot-img {
+      width: 100%;       /* Стремится занять всю ширину колонки */
+      max-width: var(--main-width);
+      height: auto;
+      display: block;
+      margin: 0 auto;    /* Если колонка шире картинки, скриншот встанет красиво по центру */
+    }
+
+    .screenshot-desc {
+      margin-top: 5px;    /* Отступ сверху от картинки */
+      font-size: 14px;    /* Размер шрифта */
+      color: #cccccc;   /* Цвет текста */
+      text-align: center; /* Выравнивание по центру */
+    }
+
+    .logo-img {
+      width: 100%;
+      max-width: var(--main-width);
+      height: auto;
+      display: block;
+      margin: 15px auto;
+    }
+
+    .gif-item {
+      width: 100%;     /* Растягиваем по ширине колонки */
+      height: auto;    /* Пропорциональная высота */
+      display: block;
+      border-radius: 0px;
+      image-rendering: pixelated;
+    }
+
+    .gif-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0;
+      max-width: var(--main-width);
+      margin: 0 auto;
+      margin-bottom: 10px;
+    }
+    /* На телефоне показывать только одну колонку */
+    @media (max-width: 600px) {
+      .gif-grid {
+        grid-template-columns: 1fr;
+      }
+      .gif-item {
+        image-rendering: auto;
+      }
+      /* Находим ВТОРУЮ гифку внутри сетки и полностью скрываем её */
+      .gif-item:nth-child(2) {
+        display: none;
+      }
+    }
+
+    .gameplay {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: auto;
+      margin: 10px;
+    }
+    .gameplay picture {
+      display: block;
+      max-width: 512px;
+      width: 100%;
+    }
+    .gameplay img {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-width: 100%;
+    }
+
+    /* -------------------------------- таблицы --------------------------------- */
+    table {
+      border: 2px solid #999999;
+      border-collapse: collapse;
+      margin-top: 15px;
+      margin-bottom: 20px;
+    }
+
+    td, th {
+      border: 1px solid hsl(0, 0%, 34%);
+      padding-top: 5px;
+      padding-bottom: 3px;
+      padding-left: 9px;
+      padding-right: 10px;
+    }
+
+    tr:first-child {
+      color: white;
+      background-color: hsl(0, 0%, 8%);
+    }
+
+    .table-soft td:nth-child(1) {
+      font-weight:450;
+      color: white;
+    }
+
+    /*.table-minigames { margin-bottom: 0; }
+    .table-builds { margin-top: -4px; }*/
+
+    .table-builds td:nth-child(2) { color: white; }
+
+    .table-news th:nth-child(1) { color: #999999; }
+    .table-news td:nth-child(1) { color: #888888; }
+    .table-news th:nth-child(2) { color: #dddddd; }
+  </style>
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="images/favicon.png" type="image/png" sizes="32x32">
+</head>
+
+<body>
+  <header>
+    <h1>Игра H.P.W</h1>
+    <div class="gif-grid">
+      <img class="gif-item" src="images/bg1.webp" title="Просто анимация" alt="H.P.W: Анимация с цифрами" loading="lazy">
+      <img class="gif-item" src="images/bg1.webp" title="Просто анимация" alt="H.P.W: Анимация с цифрами" loading="lazy">
+    </div>
+  </header>
+
+  <main>
+    <article>
+      <p>Поисковые роботы должны игнорить этот сайт, но если вы сюда попали не
+        по ссылке значит эти правила нифига не работают. Сайт служит хранилищем
+        билдов и исходников моей игры. Здесь можно почитать новости по
+        разработке.</p>
+    </article>
+    <nav>
+      <ul class="menu">
+        <h3>навигация по сайту</h3>
+        <li><a href="downloads/downloads.html"><b>Скачать игру</b></a></li>
+        <li><a href="about-game.html">Про чё игра</a></li>
+        <li><a href="news/news.html">Новости по игре</a></li>
+        <li><a href="source/sources.html">Исходники</a></li>
+        <li><a href="donate.html">Куда донатить</a></li>
+        <li><a href="links.html">Ссылки</a></li>
+      </ul>
+    </nav>
+  </main>
+
+  <footer>
+    <div class='footer-style'>
+      <p>Дата изменения сайта 28.07.2026</p>
+      <p>&copy; 2026 HPW-Dev</p>
+    </div>
+  </footer>
+</body></html>
