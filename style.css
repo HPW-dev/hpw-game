@@ -207,8 +207,8 @@ header h1 {
   grid-template-columns: repeat(2, 1fr);
   gap: 0;
   max-width: var(--main-width);
-  margin: 0 auto;
-  margin-bottom: 10px;
+  aspect-ratio: 1024 / 73; /* Пока картинки грузятся, будет пустое пространство */
+  margin: 0 auto 10px auto;
 }
 /* На телефоне показывать только одну колонку */
 @media (max-width: 600px) {
