@@ -33,6 +33,16 @@
   box-sizing: border-box;
 }
 
+summary {
+  color: var(--link-color);
+  cursor: grab;
+}
+
+details {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
 body {
   background-color: var(--main-bg);
   color: var(--main-text);
@@ -214,7 +224,7 @@ header h1 {
   }
 }
 
-.gameplay {
+.gameplay, .video {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -224,17 +234,16 @@ header h1 {
   max-width: var(--main-width);
   text-align: center;
 }
-.gameplay picture {
-  display: inline-block;
-  max-width: 512px;
-  width: 100%;
+.gameplay picture, .video picture {
+  display: block;
+  max-width: 100%; 
   margin: 0 auto;
 }
-.gameplay img {
+.gameplay img, .video img {
   display: block;
   width: 100%;
   height: auto;
-  max-width: 512px;
+  max-width: 100%;
   margin: 0 auto;
 }
 
