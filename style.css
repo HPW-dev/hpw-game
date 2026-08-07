@@ -43,7 +43,7 @@ details {
   padding-bottom: 15px;
 }
 
-body {
+body, pre {
   background-color: var(--main-bg);
   color: var(--main-text);
   font-family: var(--main-font);
