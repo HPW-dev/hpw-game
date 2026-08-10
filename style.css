@@ -165,7 +165,7 @@ header h1 {
 
 .gallery {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* Ровно два одинаковых столбца */
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 10px;          /* Расстояние между картинками */
   max-width: var(--main-width);
   margin: 15px auto;  /* Центрируем галерею на странице */
