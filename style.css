@@ -43,7 +43,7 @@ details {
   padding-bottom: 15px;
 }
 
-body, pre {
+body {
   background-color: var(--main-bg);
   color: var(--main-text);
   font-family: var(--main-font);
@@ -146,10 +146,12 @@ header h1 {
 }
 
 .donate pre {
-  display: inline-block;
-  min-height: fit-content;
-  white-space: pre !important; /* Запрещает браузеру переносить длинные строки */
-  overflow-x: auto;
+  background-color: var(--main-bg);
+  color: var(--main-text);
+  font-family: var(--main-font);
+  font-variant-ligatures: contextual;
+  font-size: var(--main-font-sz);
+  line-height: var(--main-line-height);
 }
 
 .fast-download {
