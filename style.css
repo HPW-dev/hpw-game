@@ -146,7 +146,7 @@ header h1 {
 }
 
 .donate pre {
-  display: block;
+  display: contents;
   min-height: fit-content;
 }
 
