@@ -1,0 +1,61 @@
+<!DOCTYPE html><html lang="ru"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon.png">
+</head>
+
+<body>
+  <main>
+    <article>
+      <header>
+        <h1>Статистика</h1>
+      </header>
+      
+      <p>
+        На создание сборщика мечты ушло <b>29 дней</b>. Благодаря плану,
+        тестам и гугловской нейронке, я смог написать <b>1777 питоновских строк</b>.
+        Для примера, система сборки SConscript набрала 106570 строк на питоне за
+        20 лет разработки. Мой сборщик делает всё что нужно и он уже готов.
+      </p>
+    </article>
+
+    <figure class="gameplay">
+      <picture style="border: 2px solid #C6C6C1">
+        <img src="media/cloc-builder.webp" alt="вывод cloc для папки builder" loading="lazy" width="991" height="519">  
+      </picture>
+      <figcaption class="screenshot-desc">Подсчёт строк кода сборщика через программу cloc.</figcaption>
+    </figure>
+
+    <p>
+      Предыдущие безуспешные попытки создать сборщик заняли вечность, но новый
+      сборщик потребовал <b>44 часа</b> на всю разработку - это я посчитал
+      из инфы git-комитов.
+      <details>
+        <summary>см. bash-скрипт для подсчёта времени разработки</summary>
+<pre><code class="language-bash">
+#!/bin/bash
+git log --author="HPW-Dev" --pretty=format:"%at" | awk '
+BEGIN { total_sec = 0; limit = 7200; commit_cost = 1800; prev = 0 }
+{
+    if (prev != 0) {
+        diff = prev - $1
+        if (diff > 0 && diff < limit) {
+            total_sec += diff
+        } else {
+            total_sec += commit_cost
+        }
+    }
+    prev = $1
+}
+END { print "Примерно затрачено часов:", total_sec / 3600 }'
+</code></pre>
+      </details>
+    </p>
+
+    <div class='back'>
+      <a href="news.html">< Назад</a>
+      <a href="../index.html">< На главную</a>
+    </div>
+  </main>
+</body></html>
