@@ -148,6 +148,8 @@ header h1 {
 .donate pre {
   display: inline-block;
   min-height: fit-content;
+  white-space: pre !important; /* Запрещает браузеру переносить длинные строки */
+  overflow-x: auto;
 }
 
 .fast-download {
