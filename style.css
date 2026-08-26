@@ -145,6 +145,11 @@ header h1 {
   width: fit-content;
 }
 
+.donate pre {
+  display: block;
+  min-height: fit-content;
+}
+
 .fast-download {
   padding: 10px 15px 10px 15px;
   margin-top: 15px;
