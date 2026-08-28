@@ -1,0 +1,35 @@
+<!DOCTYPE html><html lang="ru"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon.png">
+</head>
+
+<body>
+  <main>
+    <article>
+      <header>
+        <h1>Прикрутил PCH</h1>
+      </header>
+      
+      <p>
+        Финальной фичей сборщика стал PCH - волшебная таблиетка C++,
+        она ускоряет сборку и уменьшает писанину в заголовках. Заставить GCC
+        использовать прекомпилы - было той ещё ёбкой... Спорить с компилятором
+        не стал, хочет чтоб .gch файлы лежали там же, где и pch.hpp - пускай.
+      </p>
+      <br>
+      <p>
+        По итогу, я выиграл только 10 секунд из 80-и, которые я жду при полной
+        перекомпиляции. Релизная сборка ускорилась на 30 сек. из 200. Радует то,
+        что не придётся постоянно перечислять всякий мусор типа "macro.hpp", &lt;vector&gt;,
+        &lt;cstdint&gt; и &lt;utility&gt;.
+      </p>
+    </article>
+
+    <div class='back'>
+      <a href="news.html">< Назад</a>
+      <a href="../index.html">< На главную</a>
+    </div>
+  </main>
+</body></html>
