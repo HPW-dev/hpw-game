@@ -1,0 +1,44 @@
+<!DOCTYPE html><html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon.png">
+</head>
+
+<body>
+  <header>
+    <h1>YAML -> JSON</h1>
+  </header>
+  <main>
+    <article>
+      <figure class="gameplay">
+        <picture style="border: 1px solid #cccccc">
+          <img src="media/json-script.png" alt="yaml-cpp заменён на nlohmann::json" loading="lazy" width="332" height="311">  
+        </picture>
+        <figcaption class="screenshot-desc">yaml-cpp заменён на nlohmann::json.</figcaption>
+      </figure>
+
+      <details>
+        <summary>Подробности</summary>
+        <p>
+          Переделка была мега-муторной - игра в итоге крашилась из-за различий
+          в валидации пустых тегов между YAML и JSON. После трёх дней копипаста
+          и дебага, игра заработала и я потерял возможность писать комменты в
+          фимозные конфиги JSON v1, но их и не читал никто так что не велика
+          потеря. То что мне не придётся под линухом качать yaml-cpp и
+          линковаться с ним, это канеш победа. Фан факт о Нильсе Лохманне, его
+          достало тянуть парсер джейсонов из Qt и он решил запилить свой с блекджеком
+          и STL-френдли интерфейсом - так появился nlohmann::json. На моей
+          основной работе я долже наоборот, затащить Qt-парсер XML файлов
+          заместо &lt;msxml.h&gt;.
+        </p>
+      </details>
+    </article>
+
+    <div class='back'>
+      <a href="news.html">< Назад</a>
+      <a href="../index.html">< На главную</a>
+    </div>
+  </main>
+</body></html>
